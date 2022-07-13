@@ -1,7 +1,11 @@
 const axios = require("axios");
 class Fetcher {
   constructor() {
-    this.api = axios.create();
+    this.api = axios.create({
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
   }
   objectToQueryString(params = {}) {
     return Object.keys(params)
