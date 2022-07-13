@@ -32,14 +32,14 @@ class Fetcher {
         products.push(data.products);
         const diff = maxPrice - minPrice;
         minPrice = maxPrice;
-        maxPrice = minPrice + diff / 0.9;
+        maxPrice = minPrice + Math.floor(diff / 0.9);
         if (maxPrice > max) {
           maxPrice = max;
         } else if (maxPrice === max) {
           return products;
         }
       } else {
-        maxPrice = minPrice + (((maxPrice - minPrice) * count) / total) * 0.9;
+        maxPrice = minPrice + Math.floor((((maxPrice - minPrice) * count) / total) * 0.9);
       }
     }
   }
